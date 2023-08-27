@@ -14,7 +14,7 @@ public class ControlaJogador : MonoBehaviour
     public FixedJoystick joystick;
     public GameObject CanvasCozinha;
     private Vector3 direcao;
-    private int VelocidadeMovimento = 5;
+    private float VelocidadeMovimento = 5f;
     private int VelocidadeRotacao = 10;
     private void Start()
     {
@@ -37,8 +37,6 @@ public class ControlaJogador : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, VelocidadeRotacao * Time.deltaTime);
-
-            moveDirection.Normalize();
         }
 
         rb.velocity = moveDirection * VelocidadeMovimento;
@@ -47,7 +45,6 @@ public class ControlaJogador : MonoBehaviour
     private void AtivaAnimacao()
     {
         GetComponent<Animator>().SetFloat("Andar", rb.velocity.magnitude);
-        Debug.Log(rb.velocity.magnitude);
     }
 
 }
