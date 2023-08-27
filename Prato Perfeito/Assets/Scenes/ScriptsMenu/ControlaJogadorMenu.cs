@@ -23,14 +23,7 @@ public class ControlaJogadorMenu : MonoBehaviour
 
     private void Update()
     {
-        AtivaAnimacao();
+
     }
-
-    private void AtivaAnimacao()
-    {
-        GetComponent<Animator>().SetFloat("Andar", rb.velocity.magnitude);
-    }
-
-
 
 }
