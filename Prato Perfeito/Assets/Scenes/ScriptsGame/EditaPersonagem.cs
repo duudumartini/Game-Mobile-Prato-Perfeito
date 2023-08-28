@@ -90,6 +90,7 @@ public class EditaPersonagem : MonoBehaviour
         AlteraCoresMaterial();
     }
 
+
     private void RotacaoAtravesSlider()
     {
         if(EditaPersonagem_.activeSelf == true)

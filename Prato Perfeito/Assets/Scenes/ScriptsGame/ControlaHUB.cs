@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ControlaHUB : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ControlaHUB : MonoBehaviour
     public AudioClip SomBonusNegativo;
     public AudioClip PedidoNoLixoSound;
     public AudioSource AudioSource;
+
     public TextMeshProUGUI ValorBurgerCoinNaTela;
     public TextMeshProUGUI TempoPedido;
     public TextMeshProUGUI TempoPedidoDaCozinha;
@@ -47,6 +49,8 @@ public class ControlaHUB : MonoBehaviour
     private GameObject PedidosProntosParaEntrega;
     public GameObject DadosIngredientesBebidas;
     public GameObject BKVersaoWEB;
+    public GameObject BKEditaPersongem;
+    public Button BotaoSaveGame;
 
     public RectTransform PosicaoDoBurgerCoinNaCozinha;
     public RectTransform RectBurgerCoin;
@@ -60,6 +64,9 @@ public class ControlaHUB : MonoBehaviour
     private float VersaoWEBCont = 10;
     public Button BotaoOKVersaoWeb;
     public TextMeshProUGUI TextBotaoOkVersaoWeb;
+
+    public bool TutorialAtivado = false;
+    private bool JaFezTutorial = false;
     void Start()
     {
         Telhado.SetActive(true);
@@ -325,6 +332,7 @@ public class ControlaHUB : MonoBehaviour
             {
                 BotaoOKVersaoWeb.interactable = true;
                 TextBotaoOkVersaoWeb.text = "Ok";
+                BotaoSaveGame.interactable = false;
             }
         }
     }
@@ -333,5 +341,28 @@ public class ControlaHUB : MonoBehaviour
     {
         AceitouVersaoWEB = true;
         BKVersaoWEB.SetActive(false);
+    }
+
+    public void AtivaTutorial()
+    {
+        TutorialAtivado = true;
+        Time.timeScale = 0f;
+    }
+
+    public void DestivaTutorial()
+    {
+        TutorialAtivado = false;
+        Time.timeScale = 1f;
+        if (JaFezTutorial == false)
+        {
+            BKEditaPersongem.SetActive(true);
+            JaFezTutorial = true;
+        }
+    }
+
+    public void FechaJogo()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
     }
 }
