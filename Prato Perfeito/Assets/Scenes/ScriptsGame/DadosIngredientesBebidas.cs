@@ -5,8 +5,9 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 
-public class DadosIngredientesBebidas: MonoBehaviour
+public class DadosIngredientesBebidas : MonoBehaviour
 {
+    
     public string[] Ingredientes = new string[] {
         "Queijo",
         "Cebola",
@@ -168,7 +169,9 @@ public class DadosIngredientesBebidas: MonoBehaviour
     private float TempoItem4;
     private float TempoItem5;
 
-    
+    public GameObject[] ItemBloqueado;
+
+    public GameObject ControlaHUB;
     void Start()
     {
     }
@@ -178,40 +181,41 @@ public class DadosIngredientesBebidas: MonoBehaviour
     {
         AtualizaResumo();
         Calcula();
+        ControlaVersaoWeb();
     }
 
     public void AtualizaResumo()
-    { 
-            if (TxSlot1.text == "Queijo")
-            {
-                ValorItem1 = custoQueijo;
-                TempoItem1 = tempoQueijo;
-            }
-            else if(TxSlot1.text == "Alho")
-            {
-                ValorItem1 = custoAlho;
-                TempoItem1 = tempoAlho;
-            }
-            else if(TxSlot1.text == "Cebola")
-            {
-                ValorItem1 = custoCebola;
-                TempoItem1 = tempoCebola;
-            }
-            else if (TxSlot1.text == "Tomate")
-            {
-                ValorItem1 = custoTomate;
-                TempoItem1 = tempoTomate;
-            }
-            else if (TxSlot1.text == "Alface")
-            {
-                ValorItem1 = custoAlface;
-                TempoItem1 = tempoAlface;
-            }
-            else if (TxSlot1.text == "Pimenta")
-            {
-                ValorItem1 = custoPimenta;
-                TempoItem1 = tempoPimenta;
-            }
+    {
+        if (TxSlot1.text == "Queijo")
+        {
+            ValorItem1 = custoQueijo;
+            TempoItem1 = tempoQueijo;
+        }
+        else if (TxSlot1.text == "Alho")
+        {
+            ValorItem1 = custoAlho;
+            TempoItem1 = tempoAlho;
+        }
+        else if (TxSlot1.text == "Cebola")
+        {
+            ValorItem1 = custoCebola;
+            TempoItem1 = tempoCebola;
+        }
+        else if (TxSlot1.text == "Tomate")
+        {
+            ValorItem1 = custoTomate;
+            TempoItem1 = tempoTomate;
+        }
+        else if (TxSlot1.text == "Alface")
+        {
+            ValorItem1 = custoAlface;
+            TempoItem1 = tempoAlface;
+        }
+        else if (TxSlot1.text == "Pimenta")
+        {
+            ValorItem1 = custoPimenta;
+            TempoItem1 = tempoPimenta;
+        }
         else if (TxSlot1.text == "Pao")
         {
             ValorItem1 = custoPao;
@@ -228,20 +232,20 @@ public class DadosIngredientesBebidas: MonoBehaviour
             TempoItem1 = tempoFrango;
         }
         else if (TxSlot1.text == "Ovo")
-            {
+        {
             ValorItem1 = custoOvo;
             TempoItem1 = tempoOvo;
-            }
-            else if (TxSlot1.text == "Peixe Pequeno")
-            {
+        }
+        else if (TxSlot1.text == "Peixe Pequeno")
+        {
             ValorItem1 = custoPeixePequeno;
             TempoItem1 = tempoPeixePequeno;
-            }
-            else if (TxSlot1.text == "Milho")
-            {   
+        }
+        else if (TxSlot1.text == "Milho")
+        {
             ValorItem1 = custoMilho;
             TempoItem1 = tempoMilho;
-            }
+        }
         else if (TxSlot1.text == "Atum")
         {
             ValorItem1 = custoAtum;
@@ -362,11 +366,11 @@ public class DadosIngredientesBebidas: MonoBehaviour
             ValorItem1 = custoCarangueijo;
             TempoItem1 = tempoCarangueijo;
         }
-        else if(TxSlot1.text == null)
-            {
-                ValorItem1 = 0;
-                TempoItem1 = 0;
-            }
+        else if (TxSlot1.text == null)
+        {
+            ValorItem1 = 0;
+            TempoItem1 = 0;
+        }
 
         //Slot 2
 
@@ -935,20 +939,20 @@ public class DadosIngredientesBebidas: MonoBehaviour
         //Slot Bebida
 
         if (TxSlotBebida.text == "Agua")
-            {
-                ValorItem5 = custoAgua;
-                TempoItem5 = tempoAgua;
-            }
-            else if (TxSlotBebida.text == "Suco de Morango")
-            {
-                ValorItem5 = custoSucoDeMorango;
-                TempoItem5 = tempoSucoDeMorango;
-            }
-            else if (TxSlotBebida.text == "Suco de Limao")
-            {
-                ValorItem5 = custoSucoDeLimao;
-                TempoItem5 = tempoSucoDeLimao;
-            }
+        {
+            ValorItem5 = custoAgua;
+            TempoItem5 = tempoAgua;
+        }
+        else if (TxSlotBebida.text == "Suco de Morango")
+        {
+            ValorItem5 = custoSucoDeMorango;
+            TempoItem5 = tempoSucoDeMorango;
+        }
+        else if (TxSlotBebida.text == "Suco de Limao")
+        {
+            ValorItem5 = custoSucoDeLimao;
+            TempoItem5 = tempoSucoDeLimao;
+        }
         else if (TxSlotBebida.text == "Suco de Laranja")
         {
             ValorItem5 = custoSucoDeLaranja;
@@ -1025,18 +1029,74 @@ public class DadosIngredientesBebidas: MonoBehaviour
             TempoItem5 = tempoDrinkLuxo;
         }
         else if (TxSlotBebida.text == null)
-            {
-                ValorItem5 = 0;
-                TempoItem5 = 0;
-            }
+        {
+            ValorItem5 = 0;
+            TempoItem5 = 0;
+        }
     }
 
     public void Calcula()
     {
         ResumoDoCusto.text = ResumoCusto.ToString();
         ResumoDoTempo.text = ResumoTempo.ToString() + " s";
-        ValorDaVenda.text =(ResumoCusto + ((ResumoCusto*Lucro)/100)).ToString();
+        ValorDaVenda.text = (ResumoCusto + ((ResumoCusto * Lucro) / 100)).ToString();
         ResumoCusto = ValorItem1 + ValorItem2 + ValorItem3 + ValorItem4 + ValorItem5;
         ResumoTempo = TempoItem1 + TempoItem2 + TempoItem3 + TempoItem4 + TempoItem5;
     }
-}
+
+    public void ControlaVersaoWeb() 
+    {
+        if (ControlaHUB.GetComponent<ControlaHUB>().VersaoWEB == true)
+        {
+            System.Array.Resize(ref Ingredientes, 35);
+            System.Array.Resize(ref Bebidas, 18);
+            Ingredientes[12] = "Abobora";
+            Ingredientes[13] = "Limao";
+            Ingredientes[14] = "Bacon";
+            Ingredientes[15] = "Manteiga";
+            Ingredientes[16] = "Carne Bovina";
+            Ingredientes[17] = "Carne Suina";
+            Ingredientes[18] = "Mel";
+            Ingredientes[19] = "Macarrao";
+            Ingredientes[20] = "Ervilha";
+            Ingredientes[21] = "Cogumelo";
+            Ingredientes[22] = "Beringela";
+            Ingredientes[23] = "Carne de Ovelha";
+            Ingredientes[24] = "Molho Branco";
+            Ingredientes[25] = "Lula";
+            Ingredientes[26] = "Chocolate";
+            Ingredientes[27] = "Molho";
+            Ingredientes[28] = "Polvo";
+            Ingredientes[29] = "Peixe Grande";
+            Ingredientes[30] = "Camarao";
+            Ingredientes[31] = "Ostra Branca";
+            Ingredientes[32] = "Ostra Preta";
+            Ingredientes[33] = "Lagosta";
+            Ingredientes[34] = "Carangueijo";
+
+            Bebidas[3] = "Suco de Laranja";
+            Bebidas[4] = "Cha Gelado";
+            Bebidas[5] = "Suco de Cereja";
+            Bebidas[6] = "Cafe";
+            Bebidas[7] = "Limonada Suica";
+            Bebidas[8] = "Leite";
+            Bebidas[9] = "Cappuccino";
+            Bebidas[10] = "Drink de Morango";
+            Bebidas[11] = "Cerveja";
+            Bebidas[12] = "Cha Quente";
+            Bebidas[13] = "Drink Suico";
+            Bebidas[14] = "Drink Colorido";
+            Bebidas[15] = "Cha de Mel";
+            Bebidas[16] = "Vinho";
+            Bebidas[17] = "Drink Luxo";
+
+            for (int i = 0; i < ItemBloqueado.Length; i++)
+            {
+                if (ItemBloqueado[i].activeSelf == true)
+                {
+                    ItemBloqueado[i].SetActive(false);
+                }
+            }
+        }
+    }
+ }

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ControlaHUB : MonoBehaviour
 {
+    [NonSerialized]public bool VersaoWEB = false;
+
     public AudioClip GemaPositivo;
     public AudioClip GemaNegativo;
     public AudioClip Click;
@@ -22,7 +24,9 @@ public class ControlaHUB : MonoBehaviour
     public TextMeshProUGUI Item4Pedido;
     public TextMeshProUGUI BebidaPedido;
     public TextMeshProUGUI ValorNovo;
+
     [NonSerialized]public float Gemas = 250f;
+
     public GameObject PedidoEmProducao;
     public GameObject PedidoEmProducaoCozinha;
     public GameObject CanvasCozinha;
@@ -41,15 +45,24 @@ public class ControlaHUB : MonoBehaviour
     public GameObject Estrelas_;
     public GameObject PedidoNaoEntregue;
     private GameObject PedidosProntosParaEntrega;
+    public GameObject DadosIngredientesBebidas;
+    public GameObject BKVersaoWEB;
+
     public RectTransform PosicaoDoBurgerCoinNaCozinha;
     public RectTransform RectBurgerCoin;
     public RectTransform PosicaoDoBurgerCoin;
+
     public float Estrelas = 2.5f;
     private float AnteriorEstrelas;
     public float ValorBonus;
+
+    private bool AceitouVersaoWEB = false;
+    private float VersaoWEBCont = 10;
+    public Button BotaoOKVersaoWeb;
+    public TextMeshProUGUI TextBotaoOkVersaoWeb;
     void Start()
     {
-        //Telhado.SetActive(true);
+        Telhado.SetActive(true);
         AnteriorEstrelas = Estrelas;
     }
 
@@ -68,6 +81,7 @@ public class ControlaHUB : MonoBehaviour
         ControlaEstrelas();
         ControlaBonus();
         VerificarMudancaDeEstrelas();
+        AtivaVersaoWEB();
     }
 
     void AtivaTempoPedido()
@@ -296,5 +310,28 @@ public class ControlaHUB : MonoBehaviour
         AudioSource.clip = PedidoNoLixoSound;
         AudioSource.Play();
         Destroy(PedidoNaoEntregue);
-    }   
+    }
+
+    private void AtivaVersaoWEB()
+    {
+        if(VersaoWEB == true && AceitouVersaoWEB == false) 
+        { 
+            BKVersaoWEB.SetActive(true);
+            VersaoWEBCont -= Time.deltaTime;
+            int NovoVersaoWebCount = Mathf.FloorToInt(VersaoWEBCont);
+            TextBotaoOkVersaoWeb.text = NovoVersaoWebCount.ToString();
+            
+            if(NovoVersaoWebCount <= 0)
+            {
+                BotaoOKVersaoWeb.interactable = true;
+                TextBotaoOkVersaoWeb.text = "Ok";
+            }
+        }
+    }
+
+    public void AceitaVersaoWeb()
+    {
+        AceitouVersaoWEB = true;
+        BKVersaoWEB.SetActive(false);
+    }
 }
