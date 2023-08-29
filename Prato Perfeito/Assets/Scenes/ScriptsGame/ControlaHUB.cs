@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ControlaHUB : MonoBehaviour
 {
-    [NonSerialized]public bool VersaoWEB = false;
+    [NonSerialized]public bool VersaoWEB = true;
 
     public AudioClip GemaPositivo;
     public AudioClip GemaNegativo;
@@ -65,6 +65,7 @@ public class ControlaHUB : MonoBehaviour
     private bool AceitouVersaoWEB = false;
     private float VersaoWEBCont = 10;
     public Button BotaoOKVersaoWeb;
+    public Button PauseButton;
     public TextMeshProUGUI TextBotaoOkVersaoWeb;
 
     [NonSerialized] public bool TutorialAtivado = false;
@@ -330,6 +331,7 @@ public class ControlaHUB : MonoBehaviour
             VersaoWEBCont -= Time.deltaTime;
             int NovoVersaoWebCount = Mathf.FloorToInt(VersaoWEBCont);
             TextBotaoOkVersaoWeb.text = NovoVersaoWebCount.ToString();
+            PauseButton.interactable = false;
             
             if(NovoVersaoWebCount <= 0)
             {
