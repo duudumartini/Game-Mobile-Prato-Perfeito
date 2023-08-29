@@ -50,17 +50,15 @@ public class ControlaHUB : MonoBehaviour
     public GameObject DadosIngredientesBebidas;
     public GameObject BKVersaoWEB;
     public GameObject BKEditaPersongem;
-    public GameObject Tutorial;
-
     public Button BotaoSaveGame;
 
     public RectTransform PosicaoDoBurgerCoinNaCozinha;
     public RectTransform RectBurgerCoin;
     public RectTransform PosicaoDoBurgerCoin;
 
-    [NonSerialized] public float Estrelas = 2.5f;
+    public float Estrelas = 2.5f;
     private float AnteriorEstrelas;
-    [NonSerialized] public float ValorBonus;
+    public float ValorBonus;
 
     private bool AceitouVersaoWEB = false;
     private float VersaoWEBCont = 10;
@@ -68,12 +66,11 @@ public class ControlaHUB : MonoBehaviour
     public Button PauseButton;
     public TextMeshProUGUI TextBotaoOkVersaoWeb;
 
-    [NonSerialized] public bool TutorialAtivado = false;
+    public bool TutorialAtivado = false;
     private bool JaFezTutorial = false;
     void Start()
     {
         Telhado.SetActive(true);
-        Tutorial.SetActive(true);
         AnteriorEstrelas = Estrelas;
     }
 
