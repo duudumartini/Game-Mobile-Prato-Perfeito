@@ -1,4 +1,10 @@
 # Prato Perfeito Game
+## Você pode acessar a versão beta para WEB no link abaixo.
+- https://prato-perfeito.netlify.app/
+- Versão final em desenvolvimento.
+#
+
+
 ![Game](https://i.imgur.com/ipn0dOx.png)
 Bem-vindo ao mundo gastronômico e criativo do Prato Perfeito! Prepare-se para uma experiência culinária única, onde você se torna o mestre chef e monta pratos deliciosos de maneiras surpreendentes.
 
