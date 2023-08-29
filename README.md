@@ -1,7 +1,10 @@
 # Prato Perfeito Game
 ## Você pode acessar a versão beta para WEB no link abaixo.
+- Atenção, essa versão disponibilizada é um versão totalmente adaptada para WEB, pode ocorrer problemas na execução e jogabilidade.
+- Game desenvolvido em 3080x1440, se necessário ajuste o zoom.
+- Se for acessado via mobile, utilizar em modo Horizontal.
 - https://prato-perfeito.netlify.app/
-- Versão final em desenvolvimento.
+- Versão mobile em desenvolvimento.
 #
 
 
