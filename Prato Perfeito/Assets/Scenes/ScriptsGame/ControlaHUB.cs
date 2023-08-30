@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ControlaHUB : MonoBehaviour
 {
-    [NonSerialized]public bool VersaoWEB = true;
+    [NonSerialized]public bool VersaoWEB = false;
 
     public AudioClip GemaPositivo;
     public AudioClip GemaNegativo;
